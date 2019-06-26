@@ -1,138 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-  
+
 </body>
 <script>
-// js构造函数
-// function MathHandle(x,y){
-//   this.x = y;
-//   this.y = y;
-// }
-// MathHandle.prototype.add = function(){
-//   return this.x + this.y
-// }
+  // js构造函数
+  // function MathHandle(x,y){
+  //   this.x = y;
+  //   this.y = y;
+  // }
+  // MathHandle.prototype.add = function(){
+  //   return this.x + this.y
+  // }
 
-// var m = new MathHandle(1,2)
-// console.log(m.add());
+  // var m = new MathHandle(1,2)
+  // console.log(m.add());
 
-// Class 语法
-// class MathHandle{
-//   constructor(x,y){
-//     this.x = x;
-//     this.y = y;
-//   }
-//   add() {
-//     return this.x + this.y
-//   }
-// }
+  // Class 语法
+  // class MathHandle{
+  //   constructor(x,y){
+  //     this.x = x;
+  //     this.y = y;
+  //   }
+  //   add() {
+  //     return this.x + this.y
+  //   }
+  // }
 
-// var m = new MathHandle(1,2);
-// console.log(m.add())
-// class MathHandle{
-// //  ...
-// }
-// typeof MathHandle //function
-// MathHandle === MathHandle.prototype.constructor //ture
+  // var m = new MathHandle(1,2);
+  // console.log(m.add())
+  // class MathHandle{
+  // //  ...
+  // }
+  // typeof MathHandle //function
+  // MathHandle === MathHandle.prototype.constructor //ture
 
-// class MathHandle{
-//   constructor(x,y){
-//     this.x = x;
-//     this.y = y;
-//   }
-//   add(){
-//     return this.x + this.y
-//   }
-// }
-// const m = new MathHandle(1,2);
-// console.log(m.add());
+  // class MathHandle{
+  //   constructor(x,y){
+  //     this.x = x;
+  //     this.y = y;
+  //   }
+  //   add(){
+  //     return this.x + this.y
+  //   }
+  // }
+  // const m = new MathHandle(1,2);
+  // console.log(m.add());
 
-// 继承-JS
+  // 继承-JS
 
-// // 动物
-// function Animal(){
-//   this.eat = function(){
-//     console.log('animal eat');
-//   }
-// }
+  // // 动物
+  // function Animal(){
+  //   this.eat = function(){
+  //     console.log('animal eat');
+  //   }
+  // }
 
-// // 狗
-// function Dog(){
-//   this.bark = function(){
-//     console.log('dog bark')
-//   }
-// }
+  // // 狗
+  // function Dog(){
+  //   this.bark = function(){
+  //     console.log('dog bark')
+  //   }
+  // }
 
-// Dog.prototype = new Animal();
+  // Dog.prototype = new Animal();
 
-// // 哈士奇
-// var hashiqi = new Dog
-
-
-// 继承-class
-// class Animal {
-//   constructor(name){
-//     this.name = name;
-//   }
-//   eat(){
-//     console.log(`${this.name} eat`);
-//   }
-// }
-
-// class Dog extends Animal{
-//   constructor(name){
-//     super(name);
-//     this.name = name;
-//   }
-//   say(){
-//     console.log(`${this.name} say`)
-//   }
-// }
-// const dog = new Dog('哈士奇');
-// dog.say();
-// dog.eat();
+  // // 哈士奇
+  // var hashiqi = new Dog
 
 
-// function Animal(){
-//   this.eat = function(){
-//     alert('Animal eat')
-//   }
-// }
+  // 继承-class
+  // class Animal {
+  //   constructor(name){
+  //     this.name = name;
+  //   }
+  //   eat(){
+  //     console.log(`${this.name} eat`);
+  //   }
+  // }
 
-// function Dog(){
-//   this.bark = function(){
-//     alert('Dog bark')
-//   }
-// }
-// // 绑定原型 实现继承
-// Dog.prototype = new Animal();
-// var hashiqi = new Dog();
-// hashiqi.bark();
-// hashiqi.eat();
+  // class Dog extends Animal{
+  //   constructor(name){
+  //     super(name);
+  //     this.name = name;
+  //   }
+  //   say(){
+  //     console.log(`${this.name} say`)
+  //   }
+  // }
+  // const dog = new Dog('哈士奇');
+  // dog.say();
+  // dog.eat();
 
-// Callback Hell
-function loadImg(src,callback,fail){
-  var img = document.createElement('img');
-  img.loading = function(){
-    callback();
+
+  // function Animal(){
+  //   this.eat = function(){
+  //     alert('Animal eat')
+  //   }
+  // }
+
+  // function Dog(){
+  //   this.bark = function(){
+  //     alert('Dog bark')
+  //   }
+  // }
+  // // 绑定原型 实现继承
+  // Dog.prototype = new Animal();
+  // var hashiqi = new Dog();
+  // hashiqi.bark();
+  // hashiqi.eat();
+
+  // // Callback Hell
+  // function loadImg(src,callback,fail){
+  //   var img = document.createElement('img');
+  //   img.loading = function(){
+  //     callback();
+  //   }
+  //   img.onerror = function(){
+  //     fail();
+  //   }
+  //   img.src = src;
+  // }
+
+  // var src = '#';
+  // loadImg(src,function(img){
+  //   console.log(img.width);
+  // },function(){
+  //   console.log('failed');
+  // })
+  // function loadImg(src) {
+  //   const promise = new Promise(function (resolve, reject) {
+  //     var img = document.createElement('img');
+  //     img.onload = function () {
+  //       resolve(img);
+  //     }
+  //     img.onerror = function () {
+  //       reject()
+  //     }
+  //     img.src = src
+  //   })
+  //   return promise;
+  // }
+
+  // var src = '#';
+  // result.then(function (img) {
+  //   console.log(img.width);
+  // }, function () {
+  //   console.log('failed');
+  // })
+  // result.then(function (img) {
+  //   console.log(img.height);
+  // })
+  // let / const
+  // JS
+  // var i = 10;
+  // i = 100;
+  // var j = 20;
+  // j = 200;
+
+  // // ES6
+  // let i = 10;
+  // i = 100; //正确
+  // const j = 20;
+  // j = 200; //报错
+
+  // 多行字符串和模板解析
+  // js
+  // var name = 'zhansan',
+  //   age = 20,
+  //   html = '';
+  // html += '<div>';
+  // html += ' <p>' + name + '</p>';
+  // html += ' <p>' + age + '</p>';
+  // html += '</div>';
+  // // es6
+  // const name = 'zhansan',age =20;
+  // const html = `
+  //       <div>
+  //           <p>${name}</p>
+  //           <p>${age}</p>
+  //       <div>
+  // `;
+
+
+  // 解构赋值
+  // js
+  // var obj = {a:100,b:200}
+  // var a = obj.a;
+  // var b = obj.b;
+
+  // var arr = ['xxx','yyy','zzz'];
+  // var x = arr[0];
+  // var z = arr[0];
+
+  // // es6
+  // const obj = {a:100,b:200};
+  // const {a,b} = obj;
+  // const arr = ['xxx','yyy','zzz'];
+  // const [x,y,z] = arr;
+
+  // // 块级作用域
+  // // js
+  // var obj = {a:100,b:200}
+  // for(var item in obj){
+  //   console.log(item)
+  // }
+  // console.log(item); 'b'
+  // // es6
+  // const obj = {a:100,b:200}
+  // for(let item in obj){
+  //   console.log(item)
+  // }
+  // console.log(item); //undefined
+
+  // // 函数默认参数
+  // // js
+  // function a(a,b){
+  //   if(b == null){
+  //     b=0
+  //   }
+  // }
+  // // es6
+  // function a(a,b=0){
+
+  // }
+
+  // // 箭头函数
+  // var arr = [1,2,3];
+  // arr.map(function(item){
+  //   return item + 1
+  // })
+  // const arr = [1,2,3,4];
+  // arr.map(item => item +1);
+  // arr.map((item,index) => {
+  //   console.log(index);
+  //   return item + 1;
+  // })
+
+
+  function fn(){
+    console.log('real',this); //{a:100}
+    var arr = [1,2,3];
+    // 普通 JS
+    arr.map(function(item){
+      console.log('js',this); //window
+      return item + 1;
+    })
+    // 箭头函数
+    arr.map(item =>{
+      console.log('es6',this);//{a:100}
+      return item + 1;
+    })
   }
-  img.onerror = function(){
-    fail();
-  }
-  img.src = src;
-}
 
-var src = '#';
-loadImg(src,function(img){
-  console.log(img.width);
-},function(){
-  console.log('failed');
-})
+  fn.call({a:100})
 </script>
+
 </html>

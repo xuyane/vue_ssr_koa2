@@ -1,12 +1,12 @@
+
 function pv(ctx){
-  
-  // ctx.session.count++  
-  global.console.log('pv',ctx.path);
+  ctx.session.count++
+  global.console.log('pv',ctx.path)
 }
 
-module.exports = function(){
+module.exports=function(){
   return async function(ctx,next){
-    pv(ctx);
-    await next();
+    pv(ctx)
+    await next()
   }
 }

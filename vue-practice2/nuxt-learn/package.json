@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-learn",
+  "version": "1.0.0",
+  "description": "My primo Nuxt.js project",
+  "author": "xiaobai",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "config": {
+    "nuxt": {
+      "host": "localhost",
+      "port": "9000"
+    }
+  }
+}

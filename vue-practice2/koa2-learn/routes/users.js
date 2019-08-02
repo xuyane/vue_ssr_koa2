@@ -1,6 +1,10 @@
 const router = require('koa-router')()
+const Redis = require('koa-redis');
+
 // 引入模型
 const Person = require('../dbs/models/person')
+
+const Store = new Redis().client
 
 router.prefix('/users')
 
@@ -10,6 +14,13 @@ router.get('/', function (ctx, next) {
 
 router.get('/bar', function (ctx, next) {
   ctx.body = 'this is a users/bar response'
+})
+
+router.get('/fix',async function(ctx){
+  const st = await Store.hset('fix','name',Math.random());
+  ctx.body = {
+    code : 0
+  }
 })
 
 // 新增接口

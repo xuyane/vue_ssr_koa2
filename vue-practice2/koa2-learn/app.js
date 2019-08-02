@@ -5,17 +5,19 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+
+const session = require('koa-generic-session')
+const Redis = require('koa-redis')
+
+const pv = require('./middleware/koa-pv')
 const m1 = require('./middleware/m1')
 const m2 = require('./middleware/m2')
 const m3 = require('./middleware/m3')
-const koapv = require('./middleware/koa-pv')
 
 // 引入
 const mongoose = require('mongoose')
 const dbConfig = require('./dbs/config')
 
-const session = require('koa-generic-session')
-const Redis = require('koa-redis')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -23,9 +25,12 @@ const users = require('./routes/users')
 
 // error handler
 onerror(app)
+
 // session加密處理
-app.key = ['key','keyskeys']
+app.keys=['keys','keyskeys']
 app.use(session({
+  key:'mt',
+  prefix:'mtpr',
   store:new Redis()
 }))
 
@@ -33,10 +38,11 @@ app.use(session({
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
+app.use(pv())
 app.use(m1())
 app.use(m2())
 app.use(m3())
-app.use(koapv())
+
 
 app.use(json())
 app.use(logger())

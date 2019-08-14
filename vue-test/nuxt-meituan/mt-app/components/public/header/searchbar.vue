@@ -1,28 +1,24 @@
 <template>
-  <div class="topbar">
+  <div class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
         <img src="//s0.meituan.net/bs/fe-web-meituan/e5eeaef/img/logo.png" alt="美团">
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
-          <el-input placeholder="搜索商家或地点"/>
+          <el-input v-model="search" placeholder="搜索商家或地点" 
+          @focus="focus" 
+          @blur="blur"
+          @input="input"
+          />
           <button class="el-button el-button--primary"><i class="el-icon-search"/></button>
-          <!-- <dl class="hotPlace">
+          <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-          </dl> -->
-          <!-- <dl class="searchList">
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-          </dl> -->
+            <dd v-for="(item,idx) in hotPlaceList" :key="idx">{{item}}</dd>
+          </dl>
+          <dl class="searchList" v-if="isSearchList">
+           <dd v-for="(item,idx) in searchList" :key="idx">{{item}}</dd>
+          </dl>
         </div>
         <p class="suggset">
           <a href="#">故宫博物院</a>
@@ -59,3 +55,37 @@
     </el-row>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
+      search:'',
+      isFocus:false,
+      hotPlaceList:['火锅','火锅','火锅'],
+      searchList:['故宫','故宫','故宫']
+    }
+  },
+  computed:{
+    isHotPlace:function(){
+      return this.isFocus && !this.search
+    },
+    isSearchList:function(){
+      return this.isFocus && this.search
+    }
+  },
+  methods:{
+    focus:function(){
+      this.isFocus = true;
+    },
+    blur:function(){
+      let self = this;
+      setTimeout(function(){
+        this.isFocus = false;
+      },200)
+    },
+    input:function(){
+      console.log('input')
+    }
+  }
+}
+</script>

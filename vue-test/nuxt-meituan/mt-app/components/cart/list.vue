@@ -32,13 +32,13 @@
 
 <script>
 export default {
-  props:{
-    cartData:{
-      type:Array,
-      default:()=>{
-        return []
+  props: {
+    cartData: {
+      type: Array,
+      default: () => {
+        return [];
       }
     }
   }
-}
+};
 </script>

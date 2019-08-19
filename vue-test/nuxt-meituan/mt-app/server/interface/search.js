@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 import axios from './utils/axios'
 import Poi from '../dbs/models/poi'
-import sign from './utils/sign'
+// import sign from './utils/sign'
 
 let router = new Router({prefix: '/search'})
 
@@ -33,7 +33,7 @@ router.get('/top', async (ctx) => {
     params: {
       input: ctx.query.input,
       city: ctx.query.city,
-      sign
+      // sign
     }
   })
   ctx.body = {
@@ -73,7 +73,7 @@ router.get('/hotPlace', async (ctx) => {
       result
     }} = await axios.get(`http://cp-tools.cn/search/hotPlace`, {
     params: {
-      sign,
+      // sign,
       city
     }
   })
@@ -96,7 +96,7 @@ router.get('/resultsByKeywords', async (ctx) => {
     params: {
       city,
       keyword,
-      sign
+      // sign
     }
   })
   ctx.body = {
@@ -120,7 +120,7 @@ router.get('/products', async (ctx) => {
     params: {
       keyword,
       city,
-      sign
+      // sign
     }
   })
   if (status === 200) {

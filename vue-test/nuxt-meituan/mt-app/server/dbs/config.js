@@ -13,7 +13,7 @@ export default {
       return 'smtp.qq.com'
     },
     get user(){
-      return '**@qq.com'
+      return '419456942@qq.com'
     },
     get pass(){
       return ''

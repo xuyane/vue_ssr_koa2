@@ -1,8 +1,8 @@
 {
-  "name": "app",
+  "name": "mt-app",
   "version": "1.0.0",
   "description": "My phenomenal Nuxt.js project",
-  "author": "xiaobai",
+  "author": "yinguohui",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server --exec babel-node",
@@ -16,7 +16,6 @@
     "@nuxtjs/axios": "5.0.0",
     "axios": "0.18.0",
     "babel-preset-es2015": "6.24.1",
-    "core-js": "^2.6.9",
     "cross-env": "5.2.0",
     "crypto-js": "3.1.9-1",
     "element-ui": "2.4.6",

@@ -19,7 +19,7 @@
           <dd><nuxt-link to="/userCenter">登录商家中心</nuxt-link></dd>
           <dd><nuxt-link to="/coop">我想合作</nuxt-link></dd>
           <dd><nuxt-link to="/wap">免费手机开店</nuxt-link></dd>
-          <dd><nuxt-link to="/kaipiao">商家申请链接</nuxt-link></dd>
+          <dd><nuxt-link to="/kaipiao">商家申请开票</nuxt-link></dd>
         </dl>
       </li>
       <li class="list site">
@@ -110,9 +110,11 @@
     </ul>
   </div>
 </template>
+
 <script>
 export default {
-  
 }
 </script>
 
+<style lang="css">
+</style>
